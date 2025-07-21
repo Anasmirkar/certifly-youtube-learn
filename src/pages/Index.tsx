@@ -16,7 +16,7 @@ const courses = [
     icon: Code,
     playlistUrl: "https://youtube.com/playlist?list=PLZPZq0r_RZOMhCAyywfnYLlrjiVOkdAI1",
     videos: 25,
-    color: "from-blue-500 to-purple-600"
+    color: "from-primary to-secondary"
   },
   {
     id: "web-development",
@@ -29,7 +29,7 @@ const courses = [
     icon: Laptop,
     playlistUrl: "https://youtube.com/playlist?list=PLZPZq0r_RZONjFgGVLl-6XKJDL",
     videos: 35,
-    color: "from-green-500 to-blue-500"
+    color: "from-success to-primary"
   },
   {
     id: "machine-learning",
@@ -42,7 +42,7 @@ const courses = [
     icon: Brain,
     playlistUrl: "https://youtube.com/playlist?list=PLZPZq0r_RZOML-basics",
     videos: 40,
-    color: "from-purple-500 to-pink-500"
+    color: "from-secondary to-primary"
   },
   {
     id: "ui-ux-design",
@@ -55,7 +55,7 @@ const courses = [
     icon: Palette,
     playlistUrl: "https://youtube.com/playlist?list=PLZPZq0r_RZOUIUX",
     videos: 18,
-    color: "from-pink-500 to-orange-500"
+    color: "from-secondary to-success"
   },
   {
     id: "data-science",
@@ -68,7 +68,7 @@ const courses = [
     icon: TrendingUp,
     playlistUrl: "https://youtube.com/playlist?list=PLZPZq0r_RZODS",
     videos: 30,
-    color: "from-indigo-500 to-blue-600"
+    color: "from-primary to-secondary"
   },
   {
     id: "digital-marketing",
@@ -81,7 +81,7 @@ const courses = [
     icon: BookOpen,
     playlistUrl: "https://youtube.com/playlist?list=PLZPZq0r_RZODM",
     videos: 22,
-    color: "from-orange-500 to-red-500"
+    color: "from-success to-primary"
   }
 ];
 
@@ -178,7 +178,7 @@ const Index = () => {
                 >
                   <CardHeader className="pb-4">
                     <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${course.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="h-6 w-6 text-white" />
+                      <IconComponent className="h-6 w-6 text-primary-foreground" />
                     </div>
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -190,7 +190,7 @@ const Index = () => {
                         </Badge>
                       </div>
                       <div className="flex items-center text-sm text-muted-foreground">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400 mr-1" />
+                        <Star className="h-4 w-4 fill-success text-success mr-1" />
                         {course.rating}
                       </div>
                     </div>
