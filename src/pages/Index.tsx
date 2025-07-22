@@ -87,7 +87,20 @@ const courses = [
 ];
 
 const Index = () => {
-  const { user, signOut } = useAuth();
+  console.log('Index component rendering, useAuth:', typeof useAuth);
+  
+  // Temporarily simplify to test if the import works
+  let user = null;
+  let signOut = () => {};
+  
+  try {
+    const authResult = useAuth();
+    user = authResult.user;
+    signOut = authResult.signOut;
+    console.log('Auth state:', { user: user?.email, signOut: typeof signOut });
+  } catch (error) {
+    console.error('Error calling useAuth:', error);
+  }
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
