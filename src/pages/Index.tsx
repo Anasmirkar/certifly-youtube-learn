@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PlayCircle, Users, Clock, Star, Trophy, BookOpen, Code, Laptop, Brain, Palette, TrendingUp } from "lucide-react";
+import { PlayCircle, Users, Clock, Star, Trophy, BookOpen, Code, Laptop, Brain, Palette, TrendingUp, LogOut, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const courses = [
   {
@@ -86,6 +87,7 @@ const courses = [
 ];
 
 const Index = () => {
+  const { user, signOut } = useAuth();
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -95,11 +97,26 @@ const Index = () => {
             <Trophy className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold font-display text-foreground">CertifyTube</span>
           </div>
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" asChild>
-              <Link to="/dashboard">Dashboard</Link>
-            </Button>
-            <Button variant="outline">Sign In</Button>
+          <div className="flex items-center gap-4">
+            {user ? (
+              <>
+                <Button variant="outline" asChild>
+                  <Link to="/dashboard">Dashboard</Link>
+                </Button>
+                <div className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  <span className="text-sm text-muted-foreground">{user.email}</span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={signOut}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <Button asChild>
+                <Link to="/auth">Sign In</Link>
+              </Button>
+            )}
           </div>
         </div>
       </header>
